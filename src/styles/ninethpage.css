@@ -1,0 +1,933 @@
+/* ninethpage.css - Complete CSS for Book Consultation Section with Fixed Tick Alignment */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Main Section - Increased Width for Side by Side Layout */
+.book-consultation-section {
+  max-width: 1500px; /* Increased to accommodate side by side layout */
+  margin: 0 auto;
+  padding: 80px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+  background-color: #ffffff;
+  position: relative;
+  overflow-x: auto; /* Allow horizontal scroll if needed */
+}
+
+.consultation-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Header Section Styles */
+.consultation-header {
+  flex: 1 1 100%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b35, #ff8556);
+  color: white;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.badge:hover::before {
+  left: 100%;
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.consultation-title {
+  font-weight: 800;
+  font-size: 3.5rem;
+  color: #2c3e50;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight {
+  color: #ff6b35;
+  background: linear-gradient(135deg, #ff6b35, #ff8556);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b35, #ff8556);
+  border-radius: 2px;
+}
+
+.consultation-subtitle {
+  font-size: 1.4rem;
+  color: #7f8c8d;
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.consultation-description {
+  font-size: 1.1rem;
+  color: #34495e;
+  max-width: 800px;
+  margin: 0 auto 24px auto;
+  line-height: 1.6;
+}
+
+.urgency-note {
+  font-size: 1rem;
+  color: #c0392b;
+  font-weight: 600;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid #fecaca;
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.1);
+}
+
+.urgency-dot {
+  font-size: 18px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.1);
+  }
+}
+
+.urgency-text {
+  font-size: 14px;
+}
+
+/* Content Section - FORCE SIDE BY SIDE LAYOUT */
+.consultation-content {
+  display: flex;
+  flex-direction: row; /* Explicitly set to row */
+  flex-wrap: nowrap; /* Prevent wrapping to next line */
+  gap: 50px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Demo Info Section - Fixed Width for Side by Side */
+.demo-info {
+  flex: 0 1 45%; /* Use flex-shrink: 0 to prevent shrinking */
+  min-width: 400px; /* Minimum width to maintain readability */
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.demo-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #ff8556);
+  border-radius: 24px 24px 0 0;
+}
+
+.demo-info:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.demo-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.demo-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* FIXED TICK MARK ALIGNMENT */
+.demo-feature {
+  display: flex;
+  align-items: center; /* CHANGED FROM flex-start TO center */
+  gap: 12px;
+  font-size: 1rem;
+  color: #2c3e50;
+  line-height: 1.5;
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.demo-feature:last-child {
+  border-bottom: none;
+}
+
+.demo-feature:hover {
+  background: #f8fafc;
+  margin: 0 -16px;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.feature-check {
+  font-size: 20px;
+  color: #27ae60;
+  margin-top: 0; /* REMOVED margin-top: 2px */
+  flex-shrink: 0;
+  animation: checkBounce 0.6s ease-out;
+  line-height: 1; /* ADDED for consistent height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; /* FIXED width for consistent alignment */
+  height: 24px; /* FIXED height for consistent alignment */
+}
+
+@keyframes checkBounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.feature-text {
+  font-weight: 500;
+  line-height: 1.5;
+  display: flex; /* ADDED for better alignment */
+  align-items: center; /* ADDED to center text with tick */
+}
+
+/* Form Container Section - Fixed Width for Side by Side */
+.consultation-form-container {
+  flex: 0 1 50%; /* Use flex-shrink: 0 to prevent shrinking */
+  min-width: 500px; /* Minimum width for form usability */
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  padding: 50px 45px;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  min-height: 850px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.consultation-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #ff8556);
+  border-radius: 24px 24px 0 0;
+}
+
+.consultation-form-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.form-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* GoHighLevel Form Iframe Styles */
+.ghl-form-iframe {
+  width: 100% !important;
+  height: 750px !important;
+  border: none !important;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.ghl-form-iframe:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading State for Iframe */
+.ghl-form-iframe[src=""],
+.ghl-form-iframe:not([src]) {
+  background: #f8fafc url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="none" stroke="%23ff6b35" stroke-width="4" stroke-linecap="round" stroke-dasharray="31.416" stroke-dashoffset="31.416"><animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/><animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416" repeatCount="indefinite"/></circle><text x="50" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="%23666">Loading...</text></svg>') center center no-repeat;
+  background-size: 60px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Alternative Embed Container Styles */
+.lc-form-embed,
+.ghl-form-container {
+  width: 100%;
+  min-height: 750px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  margin-top: 20px;
+  border: 2px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.lc-form-embed:hover,
+.ghl-form-container:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+.lc-form-embed iframe {
+  width: 100% !important;
+  border: none !important;
+  border-radius: 16px;
+  min-height: 750px;
+  background: #ffffff;
+}
+
+/* Form Loading Animation */
+@keyframes formLoad {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.ghl-form-iframe,
+.lc-form-embed {
+  animation: formLoad 0.6s ease-out;
+}
+
+/* Responsive Design - Updated to Maintain Side by Side Layout Longer */
+
+/* Extra Large Desktop (1600px+) */
+@media (min-width: 1600px) {
+  .book-consultation-section {
+    max-width: 1800px;
+    padding: 100px 40px;
+  }
+  
+  .consultation-content {
+    gap: 60px;
+  }
+  
+  .demo-info {
+    flex: 0 1 45%;
+    min-width: 500px;
+    padding: 60px 50px;
+  }
+  
+  .consultation-form-container {
+    flex: 0 1 50%;
+    min-width: 600px;
+    padding: 60px 55px;
+  }
+  
+  .consultation-title {
+    font-size: 4rem;
+  }
+}
+
+/* Large Desktop (1400px - 1599px) */
+@media (max-width: 1599px) and (min-width: 1400px) {
+  .consultation-content {
+    gap: 55px;
+    flex-wrap: nowrap;
+  }
+  
+  .demo-info {
+    flex: 0 1 45%;
+    min-width: 450px;
+    padding: 55px 45px;
+  }
+  
+  .consultation-form-container {
+    flex: 0 1 50%;
+    min-width: 550px;
+    padding: 55px 50px;
+  }
+}
+
+/* Medium Desktop (1200px - 1399px) */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .book-consultation-section {
+    max-width: 1400px;
+  }
+  
+  .consultation-content {
+    gap: 45px;
+    flex-wrap: nowrap;
+  }
+  
+  .demo-info {
+    flex: 0 1 44%;
+    min-width: 420px;
+    padding: 45px 40px;
+  }
+  
+  .consultation-form-container {
+    flex: 0 1 52%;
+    min-width: 520px;
+    padding: 45px 40px;
+  }
+  
+  .consultation-title {
+    font-size: 3.2rem;
+  }
+}
+
+/* Desktop (1000px - 1199px) - Still Side by Side */
+@media (max-width: 1199px) and (min-width: 1000px) {
+  .book-consultation-section {
+    max-width: 1200px;
+  }
+  
+  .consultation-content {
+    gap: 40px;
+    flex-wrap: nowrap;
+  }
+  
+  .demo-info {
+    flex: 0 1 46%;
+    min-width: 380px;
+    padding: 40px 30px;
+  }
+  
+  .consultation-form-container {
+    flex: 0 1 50%;
+    min-width: 480px;
+    padding: 40px 35px;
+    min-height: 800px;
+  }
+  
+  .consultation-title {
+    font-size: 3rem;
+  }
+  
+  .ghl-form-iframe {
+    height: 700px !important;
+  }
+  
+  .lc-form-embed,
+  .ghl-form-container {
+    min-height: 700px;
+  }
+}
+
+/* Tablet Large (800px - 999px) - Still Keep Side by Side */
+@media (max-width: 999px) and (min-width: 800px) {
+  .book-consultation-section {
+    padding: 60px 15px;
+    overflow-x: auto;
+  }
+  
+  .consultation-content {
+    gap: 30px;
+    flex-wrap: nowrap;
+    min-width: 820px; /* Force minimum width to maintain side by side */
+  }
+
+  .demo-info {
+    flex: 0 1 45%;
+    min-width: 350px;
+    padding: 35px 25px;
+  }
+  
+  .consultation-form-container {
+    flex: 0 1 50%;
+    min-width: 420px;
+    padding: 35px 30px;
+    min-height: 750px;
+  }
+
+  .consultation-title {
+    font-size: 2.8rem;
+  }
+  
+  .form-title {
+    font-size: 2rem;
+  }
+  
+  .demo-title {
+    font-size: 1.6rem;
+  }
+  
+  .ghl-form-iframe {
+    height: 700px !important;
+  }
+  
+  .lc-form-embed,
+  .ghl-form-container {
+    min-height: 700px;
+  }
+}
+
+/* Tablet (768px - 799px) - Last chance for side by side */
+@media (max-width: 799px) and (min-width: 768px) {
+  .book-consultation-section {
+    padding: 50px 15px;
+    overflow-x: auto;
+  }
+  
+  .consultation-content {
+    gap: 25px;
+    flex-wrap: nowrap;
+    min-width: 750px;
+  }
+
+  .demo-info {
+    flex: 0 1 45%;
+    min-width: 320px;
+    padding: 30px 20px;
+  }
+  
+  .consultation-form-container {
+    flex: 0 1 50%;
+    min-width: 380px;
+    padding: 30px 25px;
+    min-height: 700px;
+  }
+  
+  .consultation-title {
+    font-size: 2.5rem;
+  }
+  
+  .form-title {
+    font-size: 1.8rem;
+  }
+  
+  .demo-title {
+    font-size: 1.5rem;
+  }
+  
+  .ghl-form-iframe {
+    height: 650px !important;
+  }
+  
+  .lc-form-embed,
+  .ghl-form-container {
+    min-height: 650px;
+  }
+}
+
+/* Mobile (< 768px) - Only now allow stacking */
+@media (max-width: 767px) {
+  .book-consultation-section {
+    overflow-x: visible;
+  }
+  
+  .consultation-content {
+    flex-direction: column; /* NOW we allow stacking */
+    flex-wrap: wrap;
+    gap: 30px;
+    min-width: auto;
+  }
+
+  .demo-info, 
+  .consultation-form-container {
+    flex: 1 1 100%;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .demo-info {
+    padding: 35px 30px;
+  }
+  
+  .consultation-form-container {
+    padding: 35px 30px;
+    min-height: 800px;
+  }
+  
+  .consultation-title {
+    font-size: 2.5rem;
+  }
+  
+  .form-title {
+    font-size: 1.8rem;
+  }
+  
+  .demo-title {
+    font-size: 1.5rem;
+  }
+  
+  .ghl-form-iframe {
+    height: 750px !important;
+  }
+  
+  .lc-form-embed,
+  .ghl-form-container {
+    min-height: 750px;
+  }
+}
+
+/* Mobile Small (480px - 767px) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .book-consultation-section {
+    padding: 40px 15px;
+  }
+  
+  .consultation-title {
+    font-size: 2.2rem;
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  .demo-title {
+    font-size: 1.4rem;
+  }
+
+  .demo-feature {
+    font-size: 0.95rem;
+  }
+  
+  .consultation-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .consultation-description {
+    font-size: 1rem;
+  }
+  
+  .urgency-note {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+  
+  .badge {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+  
+  .ghl-form-iframe {
+    height: 800px !important;
+  }
+  
+  .lc-form-embed,
+  .ghl-form-container {
+    min-height: 800px;
+  }
+  
+  .consultation-form-container {
+    padding: 25px 20px;
+    min-height: 900px;
+  }
+  
+  .demo-info {
+    padding: 25px 20px;
+  }
+}
+
+/* Mobile Very Small (< 480px) */
+@media (max-width: 479px) {
+  .book-consultation-section {
+    padding: 30px 10px;
+  }
+  
+  .consultation-title {
+    font-size: 1.8rem;
+    line-height: 1.1;
+  }
+
+  .form-title {
+    font-size: 1.4rem;
+  }
+
+  .demo-title {
+    font-size: 1.2rem;
+  }
+
+  .demo-feature {
+    font-size: 0.9rem;
+  }
+  
+  .consultation-subtitle {
+    font-size: 1rem;
+  }
+  
+  .consultation-description {
+    font-size: 0.95rem;
+  }
+  
+  .urgency-note {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .badge {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
+  
+  .ghl-form-iframe {
+    height: 850px !important;
+  }
+  
+  .lc-form-embed,
+  .ghl-form-container {
+    min-height: 850px;
+  }
+  
+  .consultation-form-container {
+    padding: 20px 15px;
+    min-height: 950px;
+    border-radius: 16px;
+  }
+  
+  .demo-info {
+    padding: 20px 15px;
+    border-radius: 16px;
+  }
+  
+  .consultation-container {
+    gap: 25px;
+  }
+  
+  .consultation-header {
+    margin-bottom: 40px;
+  }
+  
+  .demo-features {
+    gap: 12px;
+  }
+  
+  .demo-feature {
+    padding: 12px 0;
+  }
+  
+  /* Ensure tick marks remain aligned on small screens */
+  .feature-check {
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+  }
+}
+
+/* High DPI / Retina Display Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .lc-form-embed,
+  .ghl-form-iframe {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+  
+  .demo-info,
+  .consultation-form-container {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Landscape Orientation Adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .ghl-form-iframe {
+    height: 400px !important;
+  }
+  
+  .consultation-form-container {
+    min-height: 450px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .book-consultation-section {
+    background-color: #1a202c;
+    color: #e2e8f0;
+  }
+  
+  .consultation-title,
+  .form-title,
+  .demo-title {
+    color: #f7fafc;
+  }
+  
+  .consultation-description {
+    color: #cbd5e0;
+  }
+  
+  .demo-info {
+    background: linear-gradient(135deg, #2d3748, #4a5568);
+    border-color: #4a5568;
+  }
+  
+  .consultation-form-container {
+    background: linear-gradient(135deg, #2d3748, #4a5568);
+    border-color: #4a5568;
+  }
+  
+  .demo-feature {
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+  
+  .urgency-note {
+    background: linear-gradient(135deg, #742a2a, #9c4221);
+    border-color: #e53e3e;
+    color: #fed7d7;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .urgency-dot {
+    animation: none;
+  }
+  
+  .feature-check {
+    animation: none;
+  }
+  
+  .badge::before {
+    transition: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .book-consultation-section {
+    background: white;
+    color: black;
+    box-shadow: none;
+    padding: 20px;
+  }
+  
+  .ghl-form-iframe,
+  .lc-form-embed {
+    display: none;
+  }
+  
+  .consultation-form-container::after {
+    content: "Visit our website to book your consultation online.";
+    display: block;
+    text-align: center;
+    padding: 40px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .urgency-note {
+    color: black;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+  
+  .badge {
+    background: #333;
+    color: white;
+  }
+}
+
+/* Focus and Accessibility */
+.ghl-form-iframe:focus,
+.lc-form-embed:focus {
+  outline: 3px solid #ff6b35;
+  outline-offset: 2px;
+}
+
+/* Smooth Scrolling Enhancement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(255, 107, 53, 0.2);
+  color: #2c3e50;
+}
+
+::-moz-selection {
+  background: rgba(255, 107, 53, 0.2);
+  color: #2c3e50;
+}
