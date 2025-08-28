@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ScrollToHash from './pages/scrolltohash';
 import FirstPage from './pages/firstpage';
 import SecondPage from './pages/secondpage';

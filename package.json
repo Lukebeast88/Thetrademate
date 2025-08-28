@@ -1,7 +1,8 @@
 {
-  "name": "f-e",
+  "name": "thetrademate",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://thetrademate.co.uk",
   "workspaces": [
     "apps/*"
   ],
