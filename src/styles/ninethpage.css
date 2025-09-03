@@ -1,18 +1,34 @@
-/* ninethpage.css - Complete CSS for Book Consultation Section with Fixed Tick Alignment */
+/* ninethpage.css - Complete CSS with iOS/macOS Safari Background Fix */
 
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Main Section - Increased Width for Side by Side Layout */
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff !important;
+  color: #2c3e50;
+  min-height: 100vh;
+}
+
+/* Main Section - Force White Background */
 .book-consultation-section {
-  max-width: 1500px; /* Increased to accommodate side by side layout */
+  max-width: 1400px;
   margin: 0 auto;
   padding: 80px 20px;
   font-family: 'Poppins', sans-serif;
   color: #2c3e50;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
+  background: rgba(255, 255, 255, 1) !important;
   position: relative;
-  overflow-x: auto; /* Allow horizontal scroll if needed */
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
 }
 
 .consultation-container {
@@ -47,21 +63,6 @@
   overflow: hidden;
 }
 
-.badge::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.badge:hover::before {
-  left: 100%;
-}
-
 .badge:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
@@ -73,30 +74,10 @@
   color: #2c3e50;
   margin: 0 0 16px 0;
   line-height: 1.2;
-  background: linear-gradient(135deg, #2c3e50, #34495e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .highlight {
   color: #ff6b35;
-  background: linear-gradient(135deg, #ff6b35, #ff8556);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-}
-
-.highlight::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, #ff6b35, #ff8556);
-  border-radius: 2px;
 }
 
 .consultation-subtitle {
@@ -149,22 +130,20 @@
   font-size: 14px;
 }
 
-/* Content Section - FORCE SIDE BY SIDE LAYOUT */
+/* Content Section Styles */
 .consultation-content {
   display: flex;
-  flex-direction: row; /* Explicitly set to row */
-  flex-wrap: nowrap; /* Prevent wrapping to next line */
   gap: 50px;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
 }
 
-/* Demo Info Section - Fixed Width for Side by Side */
+/* Demo Info Section - Force White Background */
 .demo-info {
-  flex: 0 1 45%; /* Use flex-shrink: 0 to prevent shrinking */
-  min-width: 400px; /* Minimum width to maintain readability */
-  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  flex: 1 1 45%;
+  background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+  background-color: #ffffff !important;
   border-radius: 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   padding: 50px 40px;
@@ -196,7 +175,7 @@
 
 .demo-title {
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: #2c3e50;
   text-align: center;
   margin-bottom: 16px;
@@ -212,10 +191,9 @@
   gap: 16px;
 }
 
-/* FIXED TICK MARK ALIGNMENT */
 .demo-feature {
   display: flex;
-  align-items: center; /* CHANGED FROM flex-start TO center */
+  align-items: center;
   gap: 12px;
   font-size: 1rem;
   color: #2c3e50;
@@ -239,44 +217,28 @@
 .feature-check {
   font-size: 20px;
   color: #27ae60;
-  margin-top: 0; /* REMOVED margin-top: 2px */
+  margin-top: 0;
   flex-shrink: 0;
-  animation: checkBounce 0.6s ease-out;
-  line-height: 1; /* ADDED for consistent height */
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px; /* FIXED width for consistent alignment */
-  height: 24px; /* FIXED height for consistent alignment */
-}
-
-@keyframes checkBounce {
-  0%, 20%, 53%, 80%, 100% {
-    transform: translate3d(0, 0, 0);
-  }
-  40%, 43% {
-    transform: translate3d(0, -8px, 0);
-  }
-  70% {
-    transform: translate3d(0, -4px, 0);
-  }
-  90% {
-    transform: translate3d(0, -2px, 0);
-  }
+  width: 24px;
+  height: 24px;
 }
 
 .feature-text {
   font-weight: 500;
   line-height: 1.5;
-  display: flex; /* ADDED for better alignment */
-  align-items: center; /* ADDED to center text with tick */
+  display: flex;
+  align-items: center;
 }
 
-/* Form Container Section - Fixed Width for Side by Side */
+/* Form Container Section - Force White Background */
 .consultation-form-container {
-  flex: 0 1 50%; /* Use flex-shrink: 0 to prevent shrinking */
-  min-width: 500px; /* Minimum width for form usability */
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  flex: 1 1 50%;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9) !important;
+  background-color: #ffffff !important;
   padding: 50px 45px;
   border-radius: 24px;
   border: 1px solid #e2e8f0;
@@ -319,7 +281,7 @@
   border: none !important;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  background: #ffffff;
+  background: #ffffff !important;
   overflow: hidden;
   transition: all 0.3s ease;
   margin-top: 20px;
@@ -327,16 +289,6 @@
 
 .ghl-form-iframe:hover {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Loading State for Iframe */
-.ghl-form-iframe[src=""],
-.ghl-form-iframe:not([src]) {
-  background: #f8fafc url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="none" stroke="%23ff6b35" stroke-width="4" stroke-linecap="round" stroke-dasharray="31.416" stroke-dashoffset="31.416"><animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/><animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416" repeatCount="indefinite"/></circle><text x="50" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="%23666">Loading...</text></svg>') center center no-repeat;
-  background-size: 60px 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Alternative Embed Container Styles */
@@ -347,7 +299,7 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  background: #ffffff;
+  background: #ffffff !important;
   margin-top: 20px;
   border: 2px solid #f1f5f9;
   transition: all 0.3s ease;
@@ -364,23 +316,81 @@
   border: none !important;
   border-radius: 16px;
   min-height: 750px;
-  background: #ffffff;
+  background: #ffffff !important;
 }
 
-/* Form Loading Animation */
-@keyframes formLoad {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* SAFARI/iOS/macOS SPECIFIC FIXES */
+
+/* WebKit/Safari specific background fix */
+@supports (-webkit-appearance: none) {
+  .book-consultation-section,
+  .consultation-container,
+  .demo-info,
+  .consultation-form-container {
+    background-color: #ffffff !important;
+    background: rgba(255, 255, 255, 1) !important;
+  }
 }
 
-.ghl-form-iframe,
-.lc-form-embed {
-  animation: formLoad 0.6s ease-out;
+/* iOS Safari specific override */
+@supports (-webkit-touch-callout: none) {
+  .book-consultation-section,
+  .consultation-container,
+  .demo-info,
+  .consultation-form-container {
+    background-color: #ffffff !important;
+    background: white !important;
+  }
 }
 
-/* Responsive Design - Updated to Maintain Side by Side Layout Longer */
+/* Force hardware acceleration for smooth rendering on Safari */
+.book-consultation-section,
+.demo-info,
+.consultation-form-container {
+  will-change: background-color;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
 
-/* Extra Large Desktop (1600px+) */
+/* Dark Mode Override - Force White Background */
+@media (prefers-color-scheme: dark) {
+  .book-consultation-section,
+  .consultation-container,
+  .consultation-header,
+  .consultation-content,
+  .demo-info,
+  .consultation-form-container {
+    background-color: #ffffff !important;
+    background: rgba(255, 255, 255, 1) !important;
+    color: #2c3e50 !important;
+  }
+  
+  .consultation-title,
+  .form-title,
+  .demo-title {
+    color: #2c3e50 !important;
+  }
+  
+  .consultation-description,
+  .demo-feature {
+    color: #2c3e50 !important;
+  }
+}
+
+/* Device-specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .book-consultation-section,
+  .demo-info,
+  .consultation-form-container {
+    background-color: #ffffff !important;
+    background: white !important;
+  }
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Large Desktop (1600px+) */
 @media (min-width: 1600px) {
   .book-consultation-section {
     max-width: 1800px;
@@ -456,7 +466,7 @@
   }
 }
 
-/* Desktop (1000px - 1199px) - Still Side by Side */
+/* Desktop (1000px - 1199px) */
 @media (max-width: 1199px) and (min-width: 1000px) {
   .book-consultation-section {
     max-width: 1200px;
@@ -494,7 +504,7 @@
   }
 }
 
-/* Tablet Large (800px - 999px) - Still Keep Side by Side */
+/* Tablet Large (800px - 999px) */
 @media (max-width: 999px) and (min-width: 800px) {
   .book-consultation-section {
     padding: 60px 15px;
@@ -504,7 +514,7 @@
   .consultation-content {
     gap: 30px;
     flex-wrap: nowrap;
-    min-width: 820px; /* Force minimum width to maintain side by side */
+    min-width: 820px;
   }
 
   .demo-info {
@@ -542,7 +552,7 @@
   }
 }
 
-/* Tablet (768px - 799px) - Last chance for side by side */
+/* Tablet (768px - 799px) */
 @media (max-width: 799px) and (min-width: 768px) {
   .book-consultation-section {
     padding: 50px 15px;
@@ -590,14 +600,14 @@
   }
 }
 
-/* Mobile (< 768px) - Only now allow stacking */
+/* Mobile (< 768px) */
 @media (max-width: 767px) {
   .book-consultation-section {
     overflow-x: visible;
   }
   
   .consultation-content {
-    flex-direction: column; /* NOW we allow stacking */
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 30px;
     min-width: auto;
@@ -779,7 +789,6 @@
     padding: 12px 0;
   }
   
-  /* Ensure tick marks remain aligned on small screens */
   .feature-check {
     width: 20px;
     height: 20px;
@@ -787,141 +796,34 @@
   }
 }
 
-/* High DPI / Retina Display Adjustments */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .lc-form-embed,
-  .ghl-form-iframe {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  }
-  
-  .demo-info,
-  .consultation-form-container {
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
-  }
+/* Remove button underlines */
+.consultation-btn,
+.primary-btn,
+.secondary-btn {
+  text-decoration: none !important;
 }
 
-/* Landscape Orientation Adjustments */
-@media (orientation: landscape) and (max-height: 500px) {
-  .ghl-form-iframe {
-    height: 400px !important;
-  }
-  
-  .consultation-form-container {
-    min-height: 450px;
-  }
+.consultation-btn:hover,
+.consultation-btn:focus,
+.consultation-btn:active,
+.consultation-btn:visited,
+.primary-btn:hover,
+.primary-btn:focus,
+.primary-btn:active,
+.primary-btn:visited,
+.secondary-btn:hover,
+.secondary-btn:focus,
+.secondary-btn:active,
+.secondary-btn:visited {
+  text-decoration: none !important;
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  .book-consultation-section {
-    background-color: #1a202c;
-    color: #e2e8f0;
-  }
-  
-  .consultation-title,
-  .form-title,
-  .demo-title {
-    color: #f7fafc;
-  }
-  
-  .consultation-description {
-    color: #cbd5e0;
-  }
-  
-  .demo-info {
-    background: linear-gradient(135deg, #2d3748, #4a5568);
-    border-color: #4a5568;
-  }
-  
-  .consultation-form-container {
-    background: linear-gradient(135deg, #2d3748, #4a5568);
-    border-color: #4a5568;
-  }
-  
-  .demo-feature {
-    color: #e2e8f0;
-    border-color: #4a5568;
-  }
-  
-  .urgency-note {
-    background: linear-gradient(135deg, #742a2a, #9c4221);
-    border-color: #e53e3e;
-    color: #fed7d7;
-  }
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .urgency-dot {
-    animation: none;
-  }
-  
-  .feature-check {
-    animation: none;
-  }
-  
-  .badge::before {
-    transition: none;
-  }
-}
-
-/* Print Styles */
-@media print {
-  .book-consultation-section {
-    background: white;
-    color: black;
-    box-shadow: none;
-    padding: 20px;
-  }
-  
-  .ghl-form-iframe,
-  .lc-form-embed {
-    display: none;
-  }
-  
-  .consultation-form-container::after {
-    content: "Visit our website to book your consultation online.";
-    display: block;
-    text-align: center;
-    padding: 40px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    background: #f9f9f9;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
-  .urgency-note {
-    color: black;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-  }
-  
-  .badge {
-    background: #333;
-    color: white;
-  }
-}
-
-/* Focus and Accessibility */
-.ghl-form-iframe:focus,
-.lc-form-embed:focus {
-  outline: 3px solid #ff6b35;
-  outline-offset: 2px;
-}
-
-/* Smooth Scrolling Enhancement */
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection Styling */
+/* Selection styling */
 ::selection {
   background: rgba(255, 107, 53, 0.2);
   color: #2c3e50;
